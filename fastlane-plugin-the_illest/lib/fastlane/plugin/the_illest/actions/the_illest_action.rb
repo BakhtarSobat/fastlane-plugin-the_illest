@@ -5,7 +5,16 @@ module Fastlane
   module Actions
     class TheIllestAction < Action
       def self.run(params)
-        UI.message("The Illest")
+
+
+        require "open-uri"
+        open("https://www.mynewsspot.com/wp-content/uploads/2019/01/Donald-Trump-Memes-1100x500.jpg") {|f|
+        File.open("trump.jpg","wb") do |file|
+         file.puts f.read
+        end
+        }
+
+
       end
 
       def self.description
